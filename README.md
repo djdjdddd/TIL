@@ -10,13 +10,13 @@
 
 ### Books
 
-- [클린 코드](C:\TIL\Books\CleanCode.md)
-- [그림으로 배우는 Http & Network Basic](C:\TIL\Books\Http&Network_Basic.md)
+- [클린 코드](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode.md)
+- [그림으로 배우는 Http & Network Basic](https://github.com/djdjdddd/TIL/blob/main/Books/Http%26Network_Basic.md)
 
 ### Java
 
-- [Stream API](C:\TIL\Java\Stream.md)
-- [Optional API](C:\TIL\Java\Optional.md)
+- [Stream API](https://github.com/djdjdddd/TIL/blob/main/Java/Stream.md)
+- [Optional API](https://github.com/djdjdddd/TIL/blob/main/Java/Optional.md)
 
 ### Spring
 
