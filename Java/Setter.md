@@ -2,10 +2,13 @@
 
 ## 목차
 
-1. [@Setter를 지양해야 하는 이유](##-@Setter를-지양해야-하는-이유)
+1. [setter를 지양해야 하는 이유](#setter를-지양해야-하는-이유)
+   - [객체의 불변성 보장 X](#1-객체의-불변성-보장-x)
+   - [setter로 값을 변경한 이유, 의도 파악이 어렵다](#2-setter로-값을-변경한-이유-의도-파악이-어렵다)
+   - [유지보수가 어렵다](#3-유지보수가-어렵다)
 2. 여러가지 대안
-   - [생성자 방식](<###-(1)-생성자-방식>)
-   - [static Factory Method 방식](<###-(2)-static-Factory-Method-방식>)
+   - [생성자 방식](#1-생성자-방식)
+   - [static Factory Method 방식](#2-static-factory-method-방식)
 
 ---
 
@@ -56,7 +59,7 @@ test.setCntrNo("c");
 
 ## 여러가지 대안
 
-### (1) 생성자 방식
+### 1. 생성자 방식
 
 생성자를 오버로딩(Overloading)하여
 
@@ -72,7 +75,7 @@ public Test(String cntrNo, String acctNo, String custNo) {
 }
 ```
 
-#### 생성자 방식의 단점
+#### (1) 생성자 방식의 단점
 
 1. 파라미터 개수가 적을 땐 괜찮지만, 많아질수록 코드 가독성이 좋지 않고 실수할 가능성도 있다.
 2. 메서드와 달리 생성자는 이름을 가질 수 없기에 마찬가지로 의도 파악이 어렵다.
@@ -85,7 +88,7 @@ Test test = new Test("1", "2", "3");
 Test test = new Test("1", "2", "3" ...........??);
 ```
 
-### (2) static Factory Method 방식
+### 2. static Factory Method 방식
 
 생성자 방식과 비슷해 보이지만 메서드라서 이름을 가질 수 있고, 이에 따른 장점이 많다.
 
