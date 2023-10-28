@@ -17,6 +17,7 @@
 
 - [Stream API](https://github.com/djdjdddd/TIL/blob/main/Java/Stream.md)
 - [Optional API](https://github.com/djdjdddd/TIL/blob/main/Java/Optional.md)
+- [setter를 지양하는 이유와 대안](https://github.com/djdjdddd/TIL/blob/main/Java/Setter.md)
 
 ### Spring
 
