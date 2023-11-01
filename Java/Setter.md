@@ -61,13 +61,12 @@ test.setCntrNo("c");
 
 ### 1. 생성자 방식
 
-생성자를 오버로딩(Overloading)하여
-
 ```java
 public Test(String cntrNo){
     this.cntrNo = cntrNo;
 }
 
+// 생성자를 오버로딩(Overloading)하여 다양한 파라미터를 갖는 생성자를 만들 수 있다.
 public Test(String cntrNo, String acctNo, String custNo) {
     this.cntrNo = cntrNo;
     this.acctNo = acctNo;
@@ -75,7 +74,7 @@ public Test(String cntrNo, String acctNo, String custNo) {
 }
 ```
 
-#### (1) 생성자 방식의 단점
+#### 생성자 방식의 단점
 
 1. 파라미터 개수가 적을 땐 괜찮지만, 많아질수록 코드 가독성이 좋지 않고 실수할 가능성도 있다.
 2. 메서드와 달리 생성자는 이름을 가질 수 없기에 마찬가지로 의도 파악이 어렵다.
