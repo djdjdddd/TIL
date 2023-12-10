@@ -1,8 +1,8 @@
 # Clean Code (로버트 C.마틴)
 
-1장. 클린 코드
+[1장. 클린 코드](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter1_CleanCode.md)
 
-2장. 의미 있는 이름
+[2장. 의미 있는 이름](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter2_MeaningfulNames.md)
 
 [3장. 함수](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter3_Function.md)
 
