@@ -26,11 +26,11 @@
 
 [13장. 동시성](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter13_Concurrency.md)
 
-14장. 점진적인 개선
+[14장. 점진적인 개선](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter14_SuccessiveRefinement.md)
 
-15장. Junit 들여다보기
+[15장. Junit 들여다보기](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter15_JUnitInternals.md)
 
-16장. SerialDate 리팩토링
+[16장. SerialDate 리팩토링](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter16_RefactoringSerialDate.md)
 
 17장. 냄새와 휴리스틱
 
