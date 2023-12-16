@@ -10,7 +10,7 @@
 
 [5장. 형식 맞추기](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter5_Formatting.md)
 
-6장. 객체와 자료 구조
+6장. 객체와 자료 구조 - 재독서 필요
 
 7장. 오류 처리
 
@@ -32,6 +32,6 @@
 
 [16장. SerialDate 리팩토링](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter16_RefactoringSerialDate.md)
 
-17장. 냄새와 휴리스틱
+[17장. 냄새와 휴리스틱](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter17_SmellsAndHeuristics.md)
 
-18장. 동시성2
+[18장. 동시성2](https://github.com/djdjdddd/TIL/blob/main/Books/CleanCode/Chapter18_Concurrency2.md)
