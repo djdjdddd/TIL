@@ -13,7 +13,7 @@
 - [그림으로 배우는 Http & Network Basic](https://github.com/djdjdddd/TIL/blob/main/Books/Http%26Network_Basic.md)
 
 ### Java
-- 이펙티브 자바
+- [이펙티브 자바](https://github.com/djdjdddd/TIL/tree/main/Java/EffectiveJava)
 - [메서드](https://github.com/djdjdddd/TIL/tree/main/Java/Methods)
 - [API](https://github.com/djdjdddd/TIL/tree/main/Java/API)
 - [setter를 지양하는 이유와 대안](https://github.com/djdjdddd/TIL/blob/main/Java/Setter.md)
