@@ -15,9 +15,7 @@
 ### Java
 - 이펙티브 자바
 - [메서드](https://github.com/djdjdddd/TIL/tree/main/Java/Methods)
-- API
-- [Stream API](https://github.com/djdjdddd/TIL/blob/main/Java/Stream.md)
-- [Optional API](https://github.com/djdjdddd/TIL/blob/main/Java/Optional.md)
+- [API](https://github.com/djdjdddd/TIL/tree/main/Java/API)
 - [setter를 지양하는 이유와 대안](https://github.com/djdjdddd/TIL/blob/main/Java/Setter.md)
 
 ### Spring
