@@ -30,3 +30,6 @@
 ### Design Pattern
 
 ### Algorithm
+
+### Error
+- 에러 모음
