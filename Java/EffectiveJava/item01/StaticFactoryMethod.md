@@ -135,3 +135,8 @@ public class Example{
 ## 장점
 
 ## 단점
+
+## Reference
+- https://tecoble.techcourse.co.kr/post/2020-05-26-static-factory-method/ 
+- https://inpa.tistory.com/entry/GOF-%F0%9F%92%A0-%EC%A0%95%EC%A0%81-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%83%9D%EC%84%B1%EC%9E%90-%EB%8C%80%EC%8B%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EC%9E%90
+- 이펙티브 자바 책
