@@ -21,8 +21,8 @@
 - [setter를 지양하는 이유와 대안](https://github.com/djdjdddd/TIL/blob/main/Java/Setter.md)
 
 ### Spring
-
-### Spring Boot
+- [김영한 로드맵 1 : 스프링](https://github.com/djdjdddd/TIL/tree/main/Spring/%EA%B9%80%EC%98%81%ED%95%9C%20%EB%A1%9C%EB%93%9C%EB%A7%B5%201)
+- 김영한 로드맵 2 : 스프링 부트와 JPA
 
 ### DB
 - [Redis](https://github.com/djdjdddd/TIL/tree/main/DB/Redis)
