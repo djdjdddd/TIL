@@ -27,6 +27,9 @@
 ### DB
 - [Redis](https://github.com/djdjdddd/TIL/tree/main/DB/Redis)
 
+### Web
+- [REST API](https://github.com/djdjdddd/TIL/blob/main/Web/REST%20API/REST%20API.md)
+
 ### Git
 
 ### Design Pattern
