@@ -4,7 +4,7 @@
 
 ### IoC 
 Inversion of Control, 제어의 역전
-
+- 요즘IT : https://yozm.wishket.com/magazine/detail/2115/
 
 #### 프레임워크 vs 라이브러리
 - 프레임워크가 내가 작성한 코드를 제어하고 대신 실행한다면 그것은 프레임워크가 맞다. (e.g. 스프링 프레임워크, JUnit 프레임워크)
@@ -12,7 +12,7 @@ Inversion of Control, 제어의 역전
 
 
 ### DI 
-
+- 요즘IT : https://yozm.wishket.com/magazine/detail/2115/
 
 ### IoC 컨테이너, DI 컨테이너
 - IoC 컨테이너, DI 컨테이너라고 해서 거창한게 아닙니다.
@@ -49,6 +49,3 @@ public class AppConfig{
     
 }
 ```
-
-## Reference
-- 요즘IT : https://yozm.wishket.com/magazine/detail/2115/
