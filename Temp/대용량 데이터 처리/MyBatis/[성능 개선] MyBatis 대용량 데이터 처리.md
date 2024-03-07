@@ -1,15 +1,17 @@
-### 3.7 ★★★
+# [성능 개선 연습] MyBatis 대용량 데이터 처리 
+
+## 3.7 ★
 페이징쿼리 튜닝 (오라클 12c new features)
-https://blog.naver.com/oracledo/220900701130
+- https://blog.naver.com/oracledo/220900701130
 
 
 12c 버전부터 새로 나온 `OFFSET 과 FETCH 구문` 문법
-https://rimkongs.tistory.com/158
+- https://rimkongs.tistory.com/158
 
 ---
 
-## ★중요
-### 1. 일단 지금까지 이해한 내용 정리 (3.6)
+## 3.6 ★
+### 1. 일단 지금까지 이해한 내용 정리
 fetchSize
 - 지정된 수만큼의 결과를 리턴하도록 하는 드라이버 힌트 형태의 값이다. 디폴트는 셋팅하지 않는 것이고 드라이버에 따라 다소 지원되지 않을 수 있다. (참고 [MyBatis 공식문서](https://mybatis.org/mybatis-3/ko/sqlmap-xml.html))
 - 현재 제가 사용하고 있는 `Oracle`의 경우 `디폴트 fetchSize`는 10이라고 합니다. 
