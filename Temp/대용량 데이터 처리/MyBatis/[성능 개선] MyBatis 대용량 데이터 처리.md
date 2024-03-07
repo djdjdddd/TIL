@@ -1,3 +1,13 @@
+### 3.7 ★★★
+페이징쿼리 튜닝 (오라클 12c new features)
+https://blog.naver.com/oracledo/220900701130
+
+
+12c 버전부터 새로 나온 `OFFSET 과 FETCH 구문` 문법
+https://rimkongs.tistory.com/158
+
+---
+
 ## ★중요
 ### 1. 일단 지금까지 이해한 내용 정리 (3.6)
 fetchSize
