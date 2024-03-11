@@ -126,6 +126,7 @@ public class TestDTO {
 - 예시 코드 1 (밸덩) : https://www.baeldung.com/jackson-annotations
 - 예시 코드 2 (블로그) : https://green-bin.tistory.com/90
 - enum에 대한 기본 개념 등 (우아한 기술블로그) : https://techblog.woowahan.com/2527/
+- enum API (자바 공식문서) : https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html
 
 ---
 

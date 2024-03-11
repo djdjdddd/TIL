@@ -97,3 +97,8 @@ Spring Data의 장점인 Repository 인터페이스를 이용해서 구현하니
 어차피 key에는 인증코드를, value에는 유저 데이터를 넣는 아주 간단한 기능만 사용할 거라서 RedisTemplate 만으로도 충분히 잘 구현이 되겠다는 생각이 듦.
 
 (RedisTemplate 사용한 코드 보여주기)
+
+** RedisService 짜면서 공부할 내용들도 간략히 메모 (이 글에는 말고)
+- @NonNull (여러개가 있더라??)
+- @Resource 사용법
+- 영어 해석이 안돼 해석이... expire 메서드에서 헤맸음
