@@ -57,7 +57,7 @@ public class CallServiceV0 {
 
 #### CallServiceV0Test
 이제 실제로 `CallServiceV0`라는 서비스의 메서드를 호출한다고 가정해봅시다.
-```
+```java
 @Import(CallLogAspect.class)
 @SpringBootTest
 class CallServiceV0Test {
@@ -98,26 +98,55 @@ callServiceV0.external() 실행시
 즉 `callServiceV0.external()` 내부에서 `this.internal()`을 호출하는 셈이며, 여기서 `this`는 AOP가 적용된 Proxy 객체가 아니라 CallServiceV0(쌩 객체)입니다.
 
 
-### (2) WRMS 코드로 보는 예시 
-```
-public class ExampleSvcImpl {
+### (2) WRMS 코드로 보는 예시
+
+#### 문제가 됐던 코드
+```java
+@Service
+public class XxxSvcImpl {
 
   public void saveXxx(){
-    ...
-    newXxx();
-    ...
+    newXxx();	// 프록시 객체를 거쳐서 호출하는 게 아니므로 AOP가 적용되지 않는다.
   }
 
   public void newXxx(){
-    // 비즈니스 로직
+    ...
   }
 
 }
 ```
 
-전파단계 : https://mangkyu.tistory.com/269
+#### cf. Propagation(전파단계)
+```xml
+<tx:advice id="txAdvice" transaction-manager="txManager">
+  <tx:attributes>
+    <tx:method name="save*" rollback-for="Exception" propagation="REQUIRED">
+    <tx:method name="new*" rollback-for="Exception" propagation="REQUIRES_NEW">
+  </tx:attributes>
+</tx:advice>
+```
+- `REQUIRED` : 호출한 메서드의 트랜잭션을 사용하거나 새로운 트랜잭션을 시작
+- `REQUIRES_NEW` : 항상 새로운 트랜잭션을 시작
+
+#### 권장하는 해결 방법 - 대안3 이용
+`saveXxx()`와 `newXxx()`를 서로 다른 서비스로 분리한 후 사용하면 됩니다. 
+
+```java
+@Service
+@RequiredArgsConstructor
+public class XxxSvcImpl {
+
+  private final YyySvc yyySvcImpl;
+
+  public void saveXxx(){
+    yyySvcImpl.newXxx();	// AOP가 적용된다.
+  }
+
+}
+```
 
 ---
+
 
 ## 2. 프록시와 내부 호출 - 대안1 자기 자신 주입
 내부 호출을 해결하는 가장 간단한 방법은 자기 자신을 의존관계 주입 받는 것입니다.
@@ -125,7 +154,7 @@ public class ExampleSvcImpl {
 이는 `setter 주입` 방식으로 해결할 수 있습니다.
 
 #### CallServiceV1
-```
+```java
 public class CallServiceV1 {
 
 	private CallServiceV1 callServiceV1;
@@ -153,7 +182,7 @@ public class CallServiceV1 {
 `setter 주입` 방식 외에도 `ObjectProvider` 또는 `ApplicationContext`를 이용한 지연(LAZY) 조회 방식도 있습니다.
 
 #### CallServiceV2
-```
+```java
 public class CallServiceV2 {
 
 	private final ApplicationContext applicationContext;
@@ -179,7 +208,7 @@ public class CallServiceV2 {
 따라서 AOP가 적용되게 됩니다.
 
 #### CallServiceV3
-```
+```java
 public class CallServiceV3 {
 
 	private final InternalService internalService;
@@ -193,7 +222,7 @@ public class CallServiceV3 {
 ```
 
 #### InternalService - 서비스 분리
-```
+```java
 public class InternalService {
 
 	public void internal(){
