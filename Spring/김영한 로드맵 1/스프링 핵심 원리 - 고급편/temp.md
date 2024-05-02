@@ -1,6 +1,13 @@
 # 스프링 AOP - 실무 주의사항
 
-## AOP 용어
+## 목차
+0. [AOP 용어](#0-aop-용어)
+1. [프록시와 내부 호출 - 문제](#1-프록시와-내부-호출---문제)
+2. [프록시와 내부 호출 - 대안1 자기 자신 주입](#2-프록시와-내부-호출---대안1-자기-자신-주입)
+3. [프록시와 내부 호출 - 대안2 지연 조회](#3-프록시와-내부-호출---대안2-지연-조회)
+4. [프록시와 내부 호출 - 대안3 구조 변경](#4-프록시와-내부-호출---대안3-구조-변경)
+
+## 0. AOP 용어
 - Advice(어드바이스)
   - 부가기능
 - JoinPoint(조인포인트)
@@ -20,8 +27,8 @@
 ## 1. 프록시와 내부 호출 - 문제
 
 스프링은 프록시 방식의 AOP를 사용합니다.
-따라서 AOP를 적용하면 항상 프록시를 통해서 Target(대상 객체)을 호출합니다.
-이렇게 해야 프록시에서 먼저 어드바이스(부가기능)를 호출하고, 이후에 대상 객체를 호출합니다.
+AOP를 적용하면 항상 프록시를 통해서 Target(대상 객체)을 호출합니다.
+즉, 프록시에서 먼저 어드바이스(부가기능)를 호출하고, 이후에 대상 객체를 호출합니다.
 만약 프록시를 거치지 않고 대상 객체를 직접 호출하게 되면 AOP가 적용되지 않고, 어드바이스도 호출되지 않습니다.
 
 AOP를 적용하면 스프링은 대상 객체 대신에 프록시를 스프링 빈으로 등록합니다. 
@@ -106,7 +113,7 @@ callServiceV0.external() 실행시
 public class XxxSvcImpl {
 
   public void saveXxx(){
-    newXxx();	// 프록시 객체를 거쳐서 호출하는 게 아니므로 AOP가 적용되지 않는다.
+    newXxx(); // 프록시 객체를 거쳐서 호출하는 게 아니므로 AOP가 적용되지 않는다.
   }
 
   public void newXxx(){
@@ -139,7 +146,7 @@ public class XxxSvcImpl {
   private final YyySvc yyySvcImpl;
 
   public void saveXxx(){
-    yyySvcImpl.newXxx();	// AOP가 적용된다.
+    yyySvcImpl.newXxx(); // AOP가 적용된다.
   }
 
 }
@@ -182,6 +189,7 @@ public class CallServiceV1 {
 `setter 주입` 방식 외에도 `ObjectProvider` 또는 `ApplicationContext`를 이용한 지연(LAZY) 조회 방식도 있습니다.
 
 #### CallServiceV2
+예시 코드는 `ApplicationContext`를 이용하였습니다.
 ```java
 public class CallServiceV2 {
 
