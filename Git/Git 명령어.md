@@ -210,6 +210,9 @@ git branch
 # 원격 저장소를 포함한 모든 branch 목록 확인
 git branch -a
 
+# 원격 저장소의 branch 목록 확인
+git branch -r
+
 # xxx 라는 이름의 branch 생성하기
 git branch xxx
 
