@@ -217,9 +217,14 @@ public class CallServiceV2 {
 
 #### CallServiceV3
 ```java
+@Service
 public class CallServiceV3 {
 
 	private final InternalService internalService;
+
+	public CallServiceV3(InternalService internalService){
+		this.internalService = internalService;
+	}
 
 	public void external(){
 		log.info("external 호출");
