@@ -1,4 +1,4 @@
-# 스프링 AOP - 실무 주의사항
+# 스프링 AOP - 실무 주의사항 (+ 실제 사례)
 
 ## 목차
 0. [AOP 용어](#0-aop-용어)
@@ -52,7 +52,7 @@ public class CallServiceV0 {
 
 	public void external(){
 		log.info("external 호출");
-		internal();
+		internal();	// 내부 호출!!
 	}
 
 	public void internal(){
@@ -110,15 +110,16 @@ callServiceV0.external() 실행시
 #### 문제가 됐던 코드
 ```java
 @Service
+//@Transactional //어노테이션 대신 xml로 설정 중
 public class XxxSvcImpl {
 
-  public void saveXxx(){
-    newXxx(); // 프록시 객체를 거쳐서 호출하는 게 아니므로 AOP가 적용되지 않는다.
-  }
-
-  public void newXxx(){
-    ...
-  }
+	public void saveXxx(){
+		newXxx(); // 프록시 객체를 거쳐서 호출하는 게 아니므로 AOP가 적용되지 않는다.
+	}
+	
+	public void newXxx(){
+		...
+	}
 
 }
 ```
@@ -143,11 +144,11 @@ public class XxxSvcImpl {
 @RequiredArgsConstructor
 public class XxxSvcImpl {
 
-  private final YyySvc yyySvcImpl;
+	private final YyySvc yyySvcImpl;
 
-  public void saveXxx(){
-    yyySvcImpl.newXxx(); // AOP가 적용된다.
-  }
+	public void saveXxx(){
+		yyySvcImpl.newXxx(); // AOP가 적용된다.
+	}
 
 }
 ```
@@ -162,10 +163,13 @@ public class XxxSvcImpl {
 
 #### CallServiceV1
 ```java
+@Service
+@Transactional
 public class CallServiceV1 {
 
 	private CallServiceV1 callServiceV1;
 
+	// setter 주입
 	@Autowired
 	public void setCallServiceV1(CallServiceV1 callServiceV1){  // 생성자 주입시 순환 참조 오류가 발생하므로 setter 주입을 사용!
 		this.callServiceV1 = callServiceV1;
@@ -191,8 +195,11 @@ public class CallServiceV1 {
 #### CallServiceV2
 예시 코드는 `ApplicationContext`를 이용하였습니다.
 ```java
+@Service
+@Transactional
 public class CallServiceV2 {
 
+	// for 스프링 bean 조회
 	private final ApplicationContext applicationContext;
 
 	public void external(){
@@ -218,10 +225,12 @@ public class CallServiceV2 {
 #### CallServiceV3
 ```java
 @Service
+@Transactional
 public class CallServiceV3 {
 
 	private final InternalService internalService;
 
+	// 생성자 주입
 	public CallServiceV3(InternalService internalService){
 		this.internalService = internalService;
 	}
@@ -236,6 +245,8 @@ public class CallServiceV3 {
 
 #### InternalService - 서비스 분리
 ```java
+@Service
+@Transactional
 public class InternalService {
 
 	public void internal(){
