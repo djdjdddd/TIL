@@ -11,8 +11,17 @@ rebase 단점
 원칙적으론 fetch를 먼저 하고 pull을 받아야 한다.
 1. `git fetch --all`
   - 왜냐하면 fetch를 받아야 remote의 (새로 생성되거나 삭제된) 브랜치 정보를 local에 받아오게 되고
+
+![image](https://github.com/djdjdddd/TIL/assets/126077503/e29a8926-0125-4955-ae47-572d20699b08)
+
 2. `git pull (origin main)`
   - 이어서 pull을 받게 되면 remote 정보를 local에 받고 병합시킨다.
+
+#### git pull 할 때 3가지 옵션을 고르라고 하는 경우
+- 비트버킷 [Git pull fails with a warning about reconciling divergent branches](https://confluence.atlassian.com/bbkb/git-pull-fails-with-a-warning-about-reconciling-divergent-branches-1271693522.html)
+- https://devum.tistory.com/77
+- https://kgw7401.tistory.com/103
+- https://sanghye.tistory.com/43
 
 ### git revert vs git reset
 - revert : 테스트 필요
