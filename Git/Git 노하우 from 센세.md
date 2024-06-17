@@ -12,6 +12,11 @@ rebase 단점
 1. `git fetch --all`
   - 왜냐하면 fetch를 받아야 remote의 (새로 생성되거나 삭제된) 브랜치 정보를 local에 받아오게 되고
 
+- 예시
+  - `git fetch -a` : 리모트 저장소의 모든 걸 가져옴
+  - `git switch develop` : 로컬 develop 브랜치로 이동
+  - `git merge origin/develop` : 리모트 develop 브랜치에 있는 커밋 내역을 가져옴
+
 ![image](https://github.com/djdjdddd/TIL/assets/126077503/e29a8926-0125-4955-ae47-572d20699b08)
 
 2. `git pull (origin main)`
