@@ -11,8 +11,11 @@
 - [Temp](https://github.com/djdjdddd/TIL/tree/main/00.%20%EC%97%85%EB%AC%B4%20%EB%B0%8F%20%EC%8A%A4%ED%84%B0%EB%94%94/Temp)
 - 2023
 - [2024](https://github.com/djdjdddd/TIL/tree/main/00.%20%EC%97%85%EB%AC%B4%20%EB%B0%8F%20%EC%8A%A4%ED%84%B0%EB%94%94/2024)
+- 2025
 
-### 01. [홈 서버 구축기](https://github.com/djdjdddd/TIL/tree/main/01.%20%ED%99%88%20%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%B6%95%EA%B8%B0)
+### 01. [홈 서버](https://github.com/djdjdddd/TIL/tree/main/01.%20%ED%99%88%20%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%B6%95%EA%B8%B0)
+- 홈 서버 구축기
+- 홈 서버 강의 (feat. 생활코딩)
 
 ### 02. [Backend](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend)
 - Java
