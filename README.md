@@ -8,13 +8,13 @@
 ## 🍉분류 
 
 ### 00. 업무 및 스터디
-- Temp
+- [Temp](https://github.com/djdjdddd/TIL/tree/main/00.%20%EC%97%85%EB%AC%B4%20%EB%B0%8F%20%EC%8A%A4%ED%84%B0%EB%94%94/Temp)
 - 2023
-- [2024](https://github.com/djdjdddd/TIL/tree/main/2024)
+- [2024](https://github.com/djdjdddd/TIL/tree/main/00.%20%EC%97%85%EB%AC%B4%20%EB%B0%8F%20%EC%8A%A4%ED%84%B0%EB%94%94/2024)
 
-### 01. 홈 서버 구축기
+### 01. [홈 서버 구축기](https://github.com/djdjdddd/TIL/tree/main/01.%20%ED%99%88%20%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%B6%95%EA%B8%B0)
 
-### 02. Backend
+### 02. [Backend](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend)
 - Java
 - Spring
 - DB
@@ -22,15 +22,15 @@
 
 ### 03. Frontend
 
-### 04. IDE
+### 04. [IDE](https://github.com/djdjdddd/TIL/tree/main/04.%20IDE/IntelliJ)
 - IntelliJ
 
-### 05. Git
+### 05. [Git](https://github.com/djdjdddd/TIL/tree/main/05.%20Git)
 
-### 06. CS
+### 06. [CS](https://github.com/djdjdddd/TIL/tree/main/06.%20CS)
 
-### 07. Books
-- 클린 코드
+### 07. [Books](https://github.com/djdjdddd/TIL/tree/main/07.%20Books)
+- [클린 코드](https://github.com/djdjdddd/TIL/blob/main/07.%20Books/CleanCode.md)
 - 그림으로 배우는 Http & Network Basic
 
-### 99. ETC
+### 99. [ETC](https://github.com/djdjdddd/TIL/tree/main/99.%20ETC)
