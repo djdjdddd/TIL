@@ -1,7 +1,8 @@
 # Git 브랜치 전략
 
-## 1. 베타 버전
-![image](https://github.com/djdjdddd/TIL/assets/126077503/59b29e9d-180a-4500-92ae-2436b061215c)
+## 2. 최종 버전
+![슬라이드2](https://github.com/djdjdddd/TIL/assets/126077503/6c36fe29-c533-49eb-9be7-ac4db82eacbe)
+
 
 ### 설계 포인트
 #### 0. 브랜치 구조
@@ -25,3 +26,8 @@
 2개 방법 중 택 1
 - `rebase`
 - 새 `dev` 브랜치 생성
+
+---
+
+## 1. 베타 버전
+![슬라이드1](https://github.com/djdjdddd/TIL/assets/126077503/0fc143b6-8b2c-44fb-b29a-641e81b00897)
