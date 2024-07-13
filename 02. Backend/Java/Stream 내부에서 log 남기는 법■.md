@@ -1,4 +1,4 @@
-# stream 내부에서 log 남기는 법
+# Stream 내부에서 log 남기는 법
 
 ## 공부중
 구글에 `how to logging inside stream`라고 검색
