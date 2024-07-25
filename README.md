@@ -19,6 +19,9 @@
 
 ### 02. [Backend](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend)
 - Java
+  - Effective Java
+  - 김영한 자바 강의
+  - 실제 나의 코드
 - Spring
 - DB
 - Linux
