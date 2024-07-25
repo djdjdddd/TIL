@@ -23,7 +23,10 @@
   - 김영한 자바 강의
   - 실제 나의 코드
 - Spring
+  - 김영한 Spring 강의
 - DB
+  - Oracle
+  - Redis
 - Linux
 
 ### 03. Frontend
