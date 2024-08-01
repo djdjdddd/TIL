@@ -32,7 +32,7 @@ public class Service {
 		Map<Target.Key, Integer> sumMap = targetList.stream()
 				.collect(Collectors.groupingBy(
 						e -> new Target.Key(e.getWarehouseCode(), e.getItemCode()),	// K : [창고코드, 품목코드]
-						Collectors.summingInt(Target::getOrderQuantity)				// V : 주문수량++
+						Collectors.summingInt(Target::getOrderQuantity)				      // V : 주문수량++
 				));
 
 		// 1-2. [창고, 품목]별 실제재고 계산
@@ -40,9 +40,9 @@ public class Service {
 				.map(e -> new Target.Sum(e.getKey().getWarehouseCode(), e.getKey().getItemCode(), e.getValue()))
 				//	.peek()		// 재고수량 조회 로직
 				.collect(Collectors.toMap(
-						sum -> sum.getItemCode(),									// K : 품목코드
+						sum -> sum.getItemCode(),									                  // K : 품목코드
 						sum -> sum.getInventoryQuantity() - sum.getOrderQuantity(),	// V : 실제재고 = 재고수량 - 주문수량
-						Integer::sum												// 같은 key(품목코드)일 경우 합산 처리
+						Integer::sum												                        // 같은 key(품목코드)일 경우 합산 처리
 				));
 
 		// 2. 실제재고 부족시 => 재고부족 처리
