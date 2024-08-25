@@ -1,4 +1,4 @@
-# Git 명령어 (미완성)
+# Git 명령어 [작성중]
 
 ## Reference
 - https://urbanbase.github.io/dev/2021/01/15/GitCommand.html
