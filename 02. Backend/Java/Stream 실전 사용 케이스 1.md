@@ -1,4 +1,4 @@
-# Stream 실전 사용 케이스 1
+# 재고 검증 로직
 
 ## 목차
 1. [개요](#개요)
@@ -7,17 +7,18 @@
 
 ## 개요
 ### 배경 및 해결
-`front`에서 넘어 온 대상에 대해 재고 검증을 해야 하는 상황이나, 재고를 체크할 수 있는 key 값인 창고코드, 품목코드가 랜덤하게 넘어올 수 있는 상황
+`front`에서 넘어 온 대상에 대해 재고 검증을 해야 하는 상황이나, 
+재고를 체크할 수 있는 key 값인 창고코드, 품목코드가 랜덤하게 넘어올 수 있는 상황이었습니다.
 
-정확한 재고 체크를 위해 수행한 데이터 조작
+정확한 재고 체크를 위해 데이터 조작을 수행했습니다.
 1. Grouping 
    - K : `new Target.Key(창고코드, 품목코드)`
    - V : `summingInt()`로 주문수량 합산
-2. 재고수량 조회
-   - grouping한 `[창고코드, 품목코드]` 정보로 재고수량 조회
-3. 실제재고 계산
-   - K : 품목코드
-   - V : 재고수량 - 주문수량
+2. 재고 조회
+   - grouping한 `[창고코드, 품목코드]` key로 재고 조회
+3. 실제 재고계산 및 결과처리
+   - 재고계산 : 주문가능수량 - 주문수량
+   - 결과처리 : 재고 부족 메시지 처리
 
 ---
 
@@ -25,40 +26,41 @@
 
 ### 재고 체크 로직
 ```java
-public class Service {
+public class Service{
+   public List<Target> check(List<Target> targetList) {
+      // 1-1. [창고,품목]별 주문수량 합산
+      Map<Target.Key, Integer> sumMap = targetList.stream()
+              .collect(groupingBy(
+                      e -> new Target.Key(e.getWarehouseCode(), e.getItemCode()),  // K : [창고코드, 품목코드]
+                      summingInt(Target::getOrderQuantity)  // V : 주문수량++
+              ));
 
-	public List<Target> check(List<Target> targetList){
-		// 1-1. [창고, 품목]별 주문수량 합산
-		Map<Target.Key, Integer> sumMap = targetList.stream()
-				.collect(Collectors.groupingBy(
-						e -> new Target.Key(e.getWarehouseCode(), e.getItemCode()),	// K : [창고코드, 품목코드]
-						Collectors.summingInt(Target::getOrderQuantity)				      // V : 주문수량++
-				));
+      // 1-2. [창고,품목]별 재고 계산
+      for (val e : sumMap.entrySet()) {
+         Integer orderQuantity = e.getValue();
+         Integer 주문가능수량 = 주문가능재고 조회 로직 결과;
+         e.setValue(주문가능수량 - orderQuantity); // 재고 계산 (주문가능재고 - 주문수량)
+      }
 
-		// 1-2. [창고, 품목]별 실제재고 계산
-		Map<String, Integer> calculatedMap = sumMap.entrySet().stream()
-				.map(e -> new Target.Sum(e.getKey().getWarehouseCode(), e.getKey().getItemCode(), e.getValue()))
-				//	.peek()		// 재고수량 조회 로직
-				.collect(Collectors.toMap(
-						sum -> sum.getItemCode(),									                  // K : 품목코드
-						sum -> sum.getInventoryQuantity() - sum.getOrderQuantity(),	// V : 실제재고 = 재고수량 - 주문수량
-						Integer::sum												                        // 같은 key(품목코드)일 경우 합산 처리
-				));
+      // 2. 재고 부족시 => 재고부족 메시지 처리 (단, 성공 건에 대해서만)
+      for(Target target : targetList){
+         if(isSuccess(target)){
+            val key = Target.Key.builder()
+                    .warehouseCode(target.getWarehouseCode())
+                    .itemCode(target.getItemCode())
+                    .build();
 
-		// 2. 실제재고 부족시 => 재고부족 처리
-		for(Target target : targetList){
-			String itemCode = target.getItemCode();
+            if(sumMap.containsKey(key)){ // Key로 사용되는 [창고코드, 품목코드] 객체를 비교 (equalsAndHashCode 구현 중)
+               if(sumMap.get(key) < 0){
+                  // 재고 부족 메시지
+                  // 실패 처리 (S:성공, F:실패)
+               }
+            }
+         }
+      }
 
-			if(calculatedMap.containsKey(itemCode)){
-				if(calculatedMap.get(itemCode) < 0){
-					// 재고 부족에 따른 로직 처리
-				}
-			}
-		}
-
-		return targetList;
-	}
-
+      return targetList;
+   }
 }
 ```
 
@@ -67,39 +69,39 @@ public class Service {
 @Getter
 @Setter
 public class Target {
-	private String warehouseCode;
-	private String itemCode;
-	private int orderQuantity;
+   private String warehouseCode;
+   private String itemCode;
+   private int orderQuantity;
 
-	/**
-	 * 재고 검증시 수량 합산을 위한 Key 객체
-	 */
-	@Getter
-	@Setter
-	@EqualsAndHashCode
-	@AllArgsConstructor
-	public static class Key{
-		private String warehouseCode;
-		private String itemCode;
-	}
+   /**
+    * 재고 검증시 수량 합산을 위한 Key 객체
+    */
+   @Getter
+   @Setter
+   @EqualsAndHashCode
+   @AllArgsConstructor
+   public static class Key{
+      private String warehouseCode;
+      private String itemCode;
+   }
 
-	/**
-	 * 재고 검증시 수량 합산 결과 객체
-	 */
-	@Getter
-	@Setter
-	public static class Sum{
-		private String warehouseCode;
-		private String itemCode;
-		private int orderQuantity;
-		private int inventoryQuantity;
+   /**
+    * 재고 검증시 수량 합산 결과 객체
+    */
+   @Getter
+   @Setter
+   public static class Sum{
+      private String warehouseCode;
+      private String itemCode;
+      private int orderQuantity;
+      private int inventoryQuantity;
 
-		public Sum(String warehouseCode, String itemCode, int orderQuantity){
-			this.warehouseCode = warehouseCode;
-			this.itemCode = itemCode;
-			this.orderQuantity = orderQuantity;
-		}
-	}
+      public Sum(String warehouseCode, String itemCode, int orderQuantity){
+         this.warehouseCode = warehouseCode;
+         this.itemCode = itemCode;
+         this.orderQuantity = orderQuantity;
+      }
+   }
 
 }
 ```
