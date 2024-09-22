@@ -1,8 +1,6 @@
-# Git 브랜치 전략
-
 ## 목차
-1. 실제 운영 버전 (Production version)
-2. 초기 구상 단계 (Prototype version)
+1. [실제 운영 버전 (Production version)](#1-실제-운영-버전-production-version)
+2. [초기 구상 단계 (Prototype version)](#2-초기-구상-단계-prototype-version)
 
 ## 1. 실제 운영 버전 (Production version)
 ### 1) 브랜치 전략
