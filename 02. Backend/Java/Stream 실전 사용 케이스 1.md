@@ -84,25 +84,6 @@ public class Target {
       private String warehouseCode;
       private String itemCode;
    }
-
-   /**
-    * 재고 검증시 수량 합산 결과 객체
-    */
-   @Getter
-   @Setter
-   public static class Sum{
-      private String warehouseCode;
-      private String itemCode;
-      private int orderQuantity;
-      private int inventoryQuantity;
-
-      public Sum(String warehouseCode, String itemCode, int orderQuantity){
-         this.warehouseCode = warehouseCode;
-         this.itemCode = itemCode;
-         this.orderQuantity = orderQuantity;
-      }
-   }
-
 }
 ```
  
