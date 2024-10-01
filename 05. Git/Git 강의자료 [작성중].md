@@ -1,0 +1,6 @@
+- [Git merge,rebase,cherry-pick 설명 + 그림 자료](https://hqjang.tistory.com/114)
+- [그림 참조용](https://spl.hevs.io/spl-docs/tools/git/general.html)
+- [아틀라시안 공식자](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
+- [6 Git Cherry-Pick Commands You Should Know](https://www.hatica.io/blog/git-cherry-pick-commands/)
+  - 체리픽에 대해 이해하기 좋은 자료
+  - https://www.geeksforgeeks.org/git-cherry-pick/
