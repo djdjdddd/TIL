@@ -8,9 +8,9 @@
 
 | **이름**    | **설명**         | **비고**  |
 |-------------|------------------|-----------|
-| main        | 운영 배포         | 배포 후 `main_yyMMdd` 형태로 백업 브랜치 생성     |
+| main        | 운영 배포         | 배포 후 `main_yyyyMMdd` 형태로 백업 브랜치 생성     |
 | hotfix      |  긴급 배포        |   -  |
-| rls         | 다음 정기 배포 대기 목록  | `rls/yyMMdd` 형태로 생성    |
+| rls         | 다음 정기 배포 대기 목록  | `rls/yyyyMMdd` 형태로 생성    |
 | qlf         | 검증 배포         | -     |
 | dev         | 개발 배포         | -     |
 | feat        | 기능 변경 및 추가 개발        | `feat/기능명` 형태로 생성     |
@@ -24,8 +24,8 @@
 
 #### 2-2) 배포 담당자
 - 각 프로젝트마다 1명씩 선정
-- 배포 전 `main` 브랜치 백업 &rightarrow; `main_yyMMdd`
-- 배포 당일 `rls` 브랜치 생성 &rightarrow; `rls/yyMMdd`
+- 배포 전 `main` 브랜치 백업 &rightarrow; `main_yyyyMMdd`
+- 배포 당일 `rls` 브랜치 생성 &rightarrow; `rls/yyyyMMdd`
 - `dev`, `qlf` 브랜치의 경우 적절한 주기마다 삭제 후 재생성
   - 시간이 지날수록 운영 소스와의 차이가 누적되기 때문에 소스 동기화를 위해 진행
   - 단, 개발자들에게 미리 고지 후 작업할 것
@@ -35,12 +35,13 @@
   - 깃랩 설정에서 해제하거나 특정 역할(Mainatainer)에게 권한을 부여할 수 있으나 권장 X
 - `Maintainer` 역할을 가진 담당자가 PR 승인
 
-#### 2-4) Commit message rule
-- {이슈번호} {[이름]} 간단한 코멘트 &rightarrow; `#1 [김용희] Feat: Git TIL 작성`
+#### 2-4) Commit Message Convention
+- {이슈번호} {[이름]} {간단한 코멘트} &rightarrow; `#1 [김용희] Feat: Git TIL 작성`
 - 이를 위해 이슈 생성이 선행되어야 함
+- [커밋 메시지 컨벤션에 대해 자세히 궁금하다면 이 글을 참조](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20Commit%20Message%20Convention.md)
 
-### 레퍼런스
-- [인파 - 깃 브랜치 전략 정](https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-github-flow-git-flow-%F0%9F%93%88-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5)
+### Reference
+- [인파 - 깃 브랜치 전략 정리](https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-github-flow-git-flow-%F0%9F%93%88-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5)
 - [GitLab의 역할과 권한](https://twoseed.atlassian.net/wiki/spaces/OPS/pages/2142601258/GitLab)
 - [인포그랩 GitLab Guide](https://insight.infograb.net/guide/)
 
