@@ -35,6 +35,9 @@
 - IntelliJ
 
 ### 05. [Git](https://github.com/djdjdddd/TIL/tree/main/05.%20Git)
+- [Git 브랜치 전략](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20%EB%B8%8C%EB%9E%9C%EC%B9%98%20%EC%A0%84%EB%9E%B5.md)
+- [Git Commit Message Convention](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20Commit%20Message%20Convention.md)
+- [Git 강의자료 [작성중]](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20%EA%B0%95%EC%9D%98%EC%9E%90%EB%A3%8C%20%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D.md)
 
 ### 06. [CS](https://github.com/djdjdddd/TIL/tree/main/06.%20CS)
 
