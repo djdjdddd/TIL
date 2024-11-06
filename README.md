@@ -19,14 +19,15 @@
 
 ### 02. [Backend](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend)
 - Java
-  - Effective Java
-  - 김영한 자바 강의
-  - 실제 나의 코드
+  - [Stream 실전 사용 케이스 1](https://github.com/djdjdddd/TIL/blob/main/02.%20Backend/Java/Stream%20%EC%8B%A4%EC%A0%84%20%EC%82%AC%EC%9A%A9%20%EC%BC%80%EC%9D%B4%EC%8A%A4%201.md) 
+  - [Stream 실전 사용 케이스 2](https://github.com/djdjdddd/TIL/blob/main/02.%20Backend/Java/Stream%20%EC%8B%A4%EC%A0%84%20%EC%82%AC%EC%9A%A9%20%EC%BC%80%EC%9D%B4%EC%8A%A4%202.md) 
+  - [Effective Java](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend/Java/Effective_Java)
+  - 김영한 Java 강의
 - Spring
   - 김영한 Spring 강의
 - DB
-  - Oracle
-  - Redis
+  - [Oracle](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend/DB/Oracle)
+  - [Redis](https://github.com/djdjdddd/TIL/tree/main/02.%20Backend/DB/Redis)
 - Linux
 
 ### 03. Frontend
@@ -37,7 +38,7 @@
 ### 05. [Git](https://github.com/djdjdddd/TIL/tree/main/05.%20Git)
 - [Git 브랜치 전략](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20%EB%B8%8C%EB%9E%9C%EC%B9%98%20%EC%A0%84%EB%9E%B5.md)
 - [Git Commit Message Convention](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20Commit%20Message%20Convention.md)
-- [Git 강의자료 [작성중]](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20%EA%B0%95%EC%9D%98%EC%9E%90%EB%A3%8C%20%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D.md)
+- [Git 강의자료](https://github.com/djdjdddd/TIL/blob/main/05.%20Git/Git%20%EA%B0%95%EC%9D%98%EC%9E%90%EB%A3%8C.md)
 
 ### 06. [CS](https://github.com/djdjdddd/TIL/tree/main/06.%20CS)
 
