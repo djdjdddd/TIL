@@ -1,3 +1,30 @@
+# Git 강의자료
+1. Git이란 무엇이고, 리포지토리 구조에 대해 간단히 알아보겠습니다.
+2. 자주 사용하는 Git 명령어를 알아보고, 실습해보면서 사용법을 익히겠습니다.
+
+## 목차
+- (1) What is Git
+- (2) Git Workflow
+
+## 1. What is Git
+### Git이란?
+지금까지 오늘날 환경에서 가장 널리 사용되는 최신 버전 제어 시스템은 Git입니다. Git은 원래 Linux 운영 체제 커널을 만든 사람으로 유명한 Linus Torvalds가 2005년에 개발한 활발하게 유지 관리되는 성숙한 오픈 소스 프로젝트입니다. 상용 프로젝트와 오픈 소스를 포함한 수많은 소프트웨어 프로젝트가 버전 제어에 Git을 사용하고 있습니다. Git을 사용해본 적이 있는 개발자 중에는 유능한 소프트웨어 개발 인재가 많으며 Git은 다양한 운영 체제와 IDE(통합 개발 환경)에서 잘 작동합니다.
+
+분산 아키텍처를 사용하는 Git은 DVCS(분산된 버전 제어 시스템)의 한 예입니다. 한때 CVS나 Subversion(SVN이라고도 함)과 같이 널리 사용되었던 버전 제어 시스템에서 흔히 볼 수 있듯이 소프트웨어의 전체 버전 기록을 한 곳에 보관하는 것이 아니라 Git에서는 모든 개발자의 코드 작업 복사본 역시 모든 변경 사항의 전체 기록을 담을 수 있는 리포지토리입니다.
+
+Git은 분산 외에도 성능, 보안, 유연성을 염두에 두고 설계되었습니다.
+
+![image](https://github.com/user-attachments/assets/8bc36839-6893-47fa-9a66-5ce70fc39792)
+
+---
+
+## 2. Git Workflow
+
+
+![image](https://github.com/user-attachments/assets/752796e5-2cb8-4166-8cbe-a5edcd8caa37)
+
+
+
 - [Git merge,rebase,cherry-pick 설명 + 그림 자료](https://hqjang.tistory.com/114)
 - [그림 참조용](https://spl.hevs.io/spl-docs/tools/git/general.html)
 - [아틀라시안 공식자](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
