@@ -49,6 +49,9 @@ CORS는 웹 서버가 브라우저에게 명시적으로 다른 출처의 리소
 
 여기서 출처(Origin)는 프로토콜(스킴), 호스트(도메인), 포트로 정의됩니다. 이 세 가지가 모두 일치해야 동일 출처로 간주됩니다.
 
+![image](https://github.com/user-attachments/assets/73cc1d1e-726e-4d39-9b4c-4e2530d97b02)
+- 이미지 출처 : https://opentutorials.org/module/6257/32185
+
 예:
 - 동일 출처: `http://example.com:80` ↔ `http://example.com:80/api`
 - 다른 출처: `http://example.com` ↔ `https://example.com` (프로토콜 다름)
@@ -61,6 +64,8 @@ CORS는 웹 서버가 브라우저에게 명시적으로 다른 출처의 리소
 이 때문에 cURL이나 Postman과 같은 도구에서는 요청이 잘 작동하는 반면, 브라우저에서는 동작하지 않을 수 있습니다 (이들 도구는 SOP의 영향을 받지 않기 때문입니다).
 
 ### 브라우저가 CORS 에러를 발생시키는 과정
+![image](https://github.com/user-attachments/assets/e9c5926b-df54-4f64-ae53-da8e3179cdd2)
+- 이미지 출처 : 인파
 
 브라우저에서 CORS 에러가 발생할 때의 과정은 다음과 같습니다:
 
@@ -114,7 +119,9 @@ cf. 추가내용
 - fetch로 공개 데이터를 GET 요청
 - Content-Type: application/x-www-form-urlencoded를 사용한 POST 요청. 이런 요청은 브라우저가 직접 보내며, 응답에 Access-Control-Allow-Origin: <요청 도메인> 또는 *가 있으면 성공합니다. 그렇지 않으면 CORS 오류가 발생합니다.
 
-### 3.2 사전 요청 (Preflight Requests)
+### 3.2 예비 요청 (Preflight Requests)
+![image](https://github.com/user-attachments/assets/e5c15477-750f-4f28-b971-ea9347cdb74c)
+- 이미지 출처 : 인파
 
 단순 요청이 아닌 경우, 예를 들어 PUT, DELETE, PATCH 메소드나 JSON 요청 등 브라우저는 실제 요청 전에 OPTIONS 메소드로 서버에게 요청 허용 여부를 먼저 확인합니다.
 
