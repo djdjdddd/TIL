@@ -52,8 +52,12 @@ fetch('https://api.example.com/data')
 ## 2. 🧩 CORS 에러 원인 이해하기 (부제: 왜 CORS 에러가 발생했을까?)
 
 ### 2.1. 🔐 SOP와 CORS
-- **SOP (Same-Origin Policy)**: 보안을 위해 브라우저가 **다른 출처의 리소스 접근을 제한**하는 정책입니다.
-- **CORS (Cross-Origin Resource Sharing)**: SOP의 제한을 완화할 수 있도록 **서버가 허용한 경우에만** 다른 출처의 요청을 허용하는 **HTTP 기반의 보안 메커니즘**입니다.
+- **SOP (Same-Origin Policy)**
+  - 동일 출처 정책
+  - 보안을 위해 브라우저가 **다른 출처의 리소스 접근을 제한**하는 정책
+- **CORS (Cross-Origin Resource Sharing)**
+  - 교차 출처 리소스 공유
+  - SOP의 제한을 완화할 수 있도록 **서버가 허용한 경우에만** 다른 출처의 요청을 허용하는 **HTTP 기반의 보안 메커니즘**
 
 ### 2.2. 출처(Origin)란?
 - `프로토콜 + 도메인 + 포트` 3가지 요소로 구성
@@ -83,7 +87,7 @@ fetch('https://api.example.com/data')
 ---
 
 ### 2.4. 🧠 브라우저의 CORS 동작 방식
-브라우저가 CORS 에러를 발생시키는 동작 흐름은 다음과 같습니다:
+브라우저가 CORS 에러를 발생시키는 동작 흐름은 다음과 같습니다
 
 1. **Origin 헤더를 포함한 요청 전송**  
    - 프론트엔드 JavaScript 코드에서 `fetch()`나 `XMLHttpRequest`로 외부 API를 호출하면, 브라우저는 자동으로 `Origin` 헤더를 요청에 추가합니다.  
@@ -100,9 +104,9 @@ fetch('https://api.example.com/data')
    - 이때, 응답 자체는 서버에서 200 OK로 정상적으로 내려왔을 수 있으나, 브라우저가 그것을 폐기합니다.
 
 📌 **핵심 요점**:  
-- CORS 에러는 **브라우저(클라이언트)**에서 발생합니다.  
-- 서버는 이러한 에러가 발생했다는 사실조차 알 수 없습니다.  
-- 따라서, **해결은 반드시 서버 설정을 통해 이루어져야 합니다.**
+- CORS 에러는 **브라우저(클라이언트)** 에서 발생합니다.
+- 서버는 이러한 에러가 발생했다는 사실조차 알 수 없습니다.
+- 따라서 **해결은 반드시 서버 설정을 통해 이루어져야 합니다.**
 
 > ![CORS 흐름](https://github.com/user-attachments/assets/e9c5926b-df54-4f64-ae53-da8e3179cdd2)
 > <br/>
@@ -112,7 +116,6 @@ fetch('https://api.example.com/data')
 
 ## 3. ⚙️ CORS 작동 방식의 3가지 시나리오  
 브라우저는 CORS 요청을 아래 세 가지 유형으로 구분하여 다르게 처리합니다.
-
 - ✅ 단순 요청 (Simple Request)  
 - 🧪 예비 요청 (Preflight Request)  
 - 🔐 인증 요청 (Credentialed Request)
@@ -120,7 +123,6 @@ fetch('https://api.example.com/data')
 ---
 
 ### ✅ 3.1 단순 요청 (Simple Request)
-
 단순 요청은 **브라우저가 별도의 사전 확인(Preflight) 없이 직접 전송 가능한 요청**을 의미합니다. 이는 HTML 폼 전송처럼 안전하다고 판단되는 경우에 해당합니다.
 
 **단순 요청으로 인정받기 위한 조건:**
@@ -258,15 +260,45 @@ Access-Control-Allow-Credentials: true
 
 #### 🔸 Java Servlet
 ```java
-@WebFilter("/*")
-public class CORSFilter implements Filter {
-  public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
-    HttpServletResponse res = (HttpServletResponse) response;
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    chain.doFilter(req, res);
-  }
+import javax.servlet.*;
+
+public class CORSInterceptor implements Filter {
+
+    private static final String[] allowedOrigins = {
+            "http://localhost:3000", "http://localhost:5500", "http://localhost:5501",
+            "http://127.0.0.1:3000", "http://127.0.0.1:5500", "http://127.0.0.1:5501"
+    };
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+
+        String requestOrigin = request.getHeader("Origin");
+        if(isAllowedOrigin(requestOrigin)) {
+            // Authorize the origin, all headers, and all methods
+            ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", requestOrigin);
+            ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "*");
+            ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Methods",
+                    "GET, OPTIONS, HEAD, PUT, POST, DELETE");
+
+            HttpServletResponse resp = (HttpServletResponse) servletResponse;
+
+            // CORS handshake (pre-flight request)
+            if (request.getMethod().equals("OPTIONS")) {
+                resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+                return;
+            }
+        }
+        // pass the request along the filter chain
+        filterChain.doFilter(request, servletResponse);
+    }
+
+    private boolean isAllowedOrigin(String origin){
+        for (String allowedOrigin : allowedOrigins) {
+            if(origin.equals(allowedOrigin)) return true;
+        }
+        return false;
+    }
 }
 ```
 
