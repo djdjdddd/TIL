@@ -1,26 +1,26 @@
 # 🧠 CORS 에러의 이해와 해결 방법 (Cross-Origin Resource Sharing)
 
-> Deep Research 기반 정리  
-> - 설명용 이미지 첨부 예정
-
-### ✅ (요약) CORS가 뭔지 3줄로 이해하기
-
-> 1. 브라우저는 보안을 위해, 다른 출처(origin)로의 JS 요청을 기본적으로 차단합니다.  
-> 2. 서버가 허용하는 경우(`Access-Control-Allow-Origin`), 예외적으로 허용됩니다.  
-> 3. 이 과정을 제어하고 허용하는 메커니즘이 바로 CORS입니다.
+### ✅ CORS 3줄 요약
+> 1. 브라우저는 보안을 위해, 다른 출처(origin)로의 JS 요청을 기본적으로 차단
+> 2. 서버가 허용하는 경우(`Access-Control-Allow-Origin`), 예외적으로 허용
+> 3. 이 과정을 제어하고 허용하는 메커니즘이 바로 CORS
 
 ---
 
 ## 📚 목차
+1. [🔥 CORS 에러 실제 사례](#1--cors-에러-실제-사례)
+2. [🧩 CORS 에러 원인 이해하기](#2--cors-에러-원인-이해하기-부제-왜-cors-에러가-발생했을까)  
+   2.1. [🔐 CORS와 동일 출처 정책(Same-Origin Policy)](#21--sop와-cors) 
+   
+   2.2. [출처(Origin)란?](#22-출처origin란) 
 
-1. [🔥 CORS 에러 실제 사례](#1-🔥-cors-에러-실제-사례)  
-2. [🧩 CORS 에러 원인 이해하기](#2-🧩-cors-에러-원인-이해하기)  
-   2.1. [🔐 CORS와 동일 출처 정책(Same-Origin Policy)](#21-🔐-cors와-동일-출처-정책same-origin-policy)  
-   2.2. [📦 HTTP 요청 방식에 따른 CORS 발생 여부](#22-📦-http-요청-방식에-따른-cors-발생-여부-부제-왜-cors-에러가-발생했을까)  
-   2.3. [🧠 브라우저의 CORS 동작 방식](#23-🧠-브라우저의-cors-동작-방식)  
-3. [⚙️ CORS 작동 방식의 3가지 시나리오](#3-⚙️-cors-작동-방식의-3가지-시나리오)  
-4. [🛠️ CORS 해결 방법](#4-🛠️-cors-해결-방법)  
-5. [🔒 보안을 고려한 권장 설정법](#5-🔒-보안을-고려한-권장-설정법)
+   2.3. [📦 HTTP 요청 방식에 따른 CORS 발생 여부](#23--http-요청-방식에-따른-cors-발생-여부)   
+
+   2.4. [🧠 브라우저의 CORS 동작 방식](#24--브라우저의-cors-동작-방식) 
+
+3. [⚙️ CORS 작동 방식의 3가지 시나리오](#3--cors-작동-방식의-3가지-시나리오)
+4. [🛠️ CORS 해결 방법](#4--cors-해결-방법)
+5. [🔒 보안을 고려한 권장 설정법](#5--보안을-고려한-권장-설정법)
 
 ---
 
@@ -302,7 +302,7 @@ public class WebConfig implements WebMvcConfigurer {
 > CORS는 사용자를 보호하기 위한 브라우저의 보안 기능입니다.  
 > 이를 올바르게 이해하고 서버 설정을 통해 명시적으로 허용하는 것이 핵심입니다.
 
----
+--- 
 
 ## 📚 Reference
 - [**MDN Web Docs – CORS**](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)  
